@@ -14,6 +14,20 @@ return {
 			desc = "harpoon file",
 		},
 		{
+			"<leader>F",
+			function()
+				require("harpoon"):list():remove()
+			end,
+			desc = "remove harpoon",
+		},
+		{
+			"<leader>C",
+			function()
+				require("harpoon"):list():clear()
+			end,
+			desc = "clear all harpoon",
+		},
+		{
 			"<leader>a",
 			function()
 				local harpoon = require("harpoon")
