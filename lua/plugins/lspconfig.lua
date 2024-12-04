@@ -157,7 +157,13 @@ return {
 			clangd = {},
 			gopls = {},
 			ts_ls = {},
-			solidity_ls_nomicfoundation = {},
+			solidity = {
+				cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+				filetypes = { "solidity" },
+				root_dir = function(fname)
+					return require("lspconfig.util").find_git_ancestor(fname) or vim.fn.getcwd()
+				end,
+			},
 			html = {},
 			cssls = {},
 			jsonls = {},
@@ -216,4 +222,3 @@ return {
 		})
 	end,
 }
-
