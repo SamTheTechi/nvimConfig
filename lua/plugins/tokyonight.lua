@@ -1,3 +1,9 @@
+--return {
+--	"folke/tokyonight.nvim",
+--	lazy = true,
+--	opts = { style = "mocha" },
+--}
+
 return {
 	"catppuccin/nvim",
 	lazy = false,
