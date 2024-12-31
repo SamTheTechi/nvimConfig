@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 
 DIR="nvim"
 TARGET_DIR="$HOME/.config/$DIR"
