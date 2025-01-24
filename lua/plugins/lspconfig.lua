@@ -156,26 +156,23 @@ return {
 		local servers = {
 			clangd = {},
 			ts_ls = {},
-			rust_analyzer = {},
-			solidity = {
-				cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
-				filetypes = { "solidity" },
-				root_dir = function(fname)
-					return require("lspconfig.util").find_git_ancestor(fname) or vim.fn.getcwd()
-				end,
+			rust_analyzer = {
+				procMacro = {
+					enable = true,
+				},
+				cargo = {
+					allFeatures = true,
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
 			},
+			solidity = {},
 			html = {},
 			cssls = {},
 			jsonls = {},
 			tailwindcss = {},
-			-- rust_analyzer = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-			--
-			-- Some languages (like typescript) have entire language plugins that can be useful:
-			--    https://github.com/pmizio/typescript-tools.nvim
-			--
-			-- But for many setups, the LSP (`ts_ls`) will work just fine
-			--
+			pylsp = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -192,19 +189,11 @@ return {
 			},
 		}
 
-		-- Ensure the servers and tools above are installed
-		--  To check the current status of installed tools and/or manually install
-		--  other tools, you can run
-		--    :Mason
-		--
-		--  You can press `g?` for help in this menu.
 		require("mason").setup()
 
-		-- You can add other tools here that you want Mason to install
-		-- for you, so that they are available from within Neovim.
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
+			"stylua",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -212,9 +201,6 @@ return {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					-- This handles overriding only values explicitly passed
-					-- by the server configuration above. Useful when disabling
-					-- certain features of an LSP (for example, turning off formatting for ts_ls)
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 					require("lspconfig")[server_name].setup(server)
 				end,
