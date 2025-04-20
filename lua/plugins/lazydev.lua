@@ -1,4 +1,4 @@
-return{
+return {
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
   'folke/lazydev.nvim',
   ft = 'lua',
@@ -9,3 +9,4 @@ return{
     },
   },
 }
+

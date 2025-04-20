@@ -1,9 +1,8 @@
-
 return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
-      signs ={
+      signs = {
         add = { text = '+' },
         change = { text = '~' },
         delete = { text = '_' },
