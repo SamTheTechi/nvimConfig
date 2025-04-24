@@ -1,12 +1,21 @@
 # NEOVIM
 
-my modified [kickstart](https://github.com/nvim-lua/kickstart.nvim.git) neovim config with shell script for setup and restore. "dunks non vim users!"
+my modified [kickstart](https://github.com/nvim-lua/kickstart.nvim.git) neovim config with shell script for setup  and restore (only linux and mac). "dunks on non vim users!"
 
 ```bash
 chmod -x install.sh
 ./install.sh
 ```
+---
+## preview
 
+![nvim1](nvim1.jpg)
+
+![nvim2](nvim2.jpg)
+
+![nvim3](nvim3.jpg)
+
+---
 ## plugins
 
 - [autopairs](windwp/nvim-autopairs)
@@ -28,8 +37,3 @@ chmod -x install.sh
 - [lspconfig](neovim/nvim-lspconfig)
 - [tailwind-colorizer](roobert/tailwindcss-colorizer-cmp.nvim)
 
----
-
-![nvim1](nvim1.jpg)
-![nvim2](nvim2.jpp)
-![nvim3](nvim3.jpg)
