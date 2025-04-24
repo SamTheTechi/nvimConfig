@@ -3,8 +3,10 @@
 -- lazy = false,
 -- priority = 1000,
 -- config = function()
+--
 -- vim.g.gruvbox_material_background = "hard"
 -- vim.g.gruvbox_material_enable_italic = 1
+-- vim.g:gruvbox_material_transparent_background = 1
 -- vim.cmd("colorscheme gruvbox-material")
 -- end,
 -- }
@@ -15,7 +17,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("tokyonight").setup({
-			style = "moon", -- options: "night", "storm", "moon", "day"
+			style = "storm", -- options: "night", "storm", "moon", "day"
 			transparent = true,
 			styles = {
 				comments = { italic = true },
